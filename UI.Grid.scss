@@ -1,0 +1,137 @@
+/*------------------------------------------
+::
+:: 	UI > Grid
+::
+--------------------------------------------
+::
+::	.desktop: 960 to 1298
+::
+::	.tablet: 768 to 959
+::
+::	.phone: 0 to 767
+::
+--------------------------------------------*/
+$col: 3.7559%; $colpad: 2.3474%;
+$row: 6.5574%; $rowpad: 4.0984%;
+
+@mixin absolute()			{ position:absolute; top: ($rowpad * 1); left: ($colpad * 1); }
+@mixin relative()			{ position:relative; top:0; left:0; margin: 0 0 0 $colpad; float:left; }
+@mixin container() 			{ position: relative; max-width: 1278px; margin: 0 auto; width: 100%;  }
+@mixin row() 				{ position: relative; overflow:auto; }
+
+@mixin one-row() 			{ height: ($rowpad * 0) + ($row * 1); }
+@mixin two-rows() 			{ height: ($rowpad * 1) + ($row * 2); }
+@mixin three-rows() 		{ height: ($rowpad * 2) + ($row * 3); }
+@mixin four-rows() 			{ height: ($rowpad * 3) + ($row * 4); }
+@mixin five-rows() 			{ height: ($rowpad * 4) + ($row * 5); }
+@mixin six-rows() 			{ height: ($rowpad * 5) + ($row * 6); }
+@mixin seven-rows() 		{ height: ($rowpad * 6) + ($row * 7); }
+@mixin eight-rows() 		{ height: ($rowpad * 7) + ($row * 8); }
+@mixin nine-rows() 			{ height: ($rowpad * 8) + ($row * 9); }
+@mixin one-column() 		{ width: ($colpad * 0) + ($col * 1); }
+@mixin two-columns() 		{ width: ($colpad * 1) + ($col * 2); }
+@mixin three-columns() 		{ width: ($colpad * 2) + ($col * 3); }
+@mixin four-columns() 		{ width: ($colpad * 3) + ($col * 4); }
+@mixin five-columns() 		{ width: ($colpad * 4) + ($col * 5); }
+@mixin six-columns() 		{ width: ($colpad * 5) + ($col * 6); }
+@mixin seven-columns() 		{ width: ($colpad * 6) + ($col * 7); }
+@mixin eight-columns() 		{ width: ($colpad * 7) + ($col * 8); }
+@mixin nine-columns() 		{ width: ($colpad * 8) + ($col * 9); }
+@mixin ten-columns() 		{ width: ($colpad * 9) + ($col * 10); }
+@mixin eleven-columns() 	{ width: ($colpad * 10) + ($col * 11); }
+@mixin twelve-columns() 	{ width: ($colpad * 11) + ($col * 12); }
+@mixin thirteen-columns() 	{ width: ($colpad * 12) + ($col * 13); }
+@mixin fourteen-columns() 	{ width: ($colpad * 13) + ($col * 14); }
+@mixin fifteen-columns() 	{ width: ($colpad * 14) + ($col * 15); }
+@mixin sixteen-columns() 	{ width: ($colpad * 15) + ($col * 16); }
+@mixin one-fourth-columns()		{ @include four-columns(); }
+@mixin one-half-columns()		{ @include eight-columns(); }
+@mixin one-third-columns() 		{ width: (100% - ($colpad * 4))/3; }
+@mixin two-third-columns() 		{ width: $colpad + ((100% - ($colpad * 4))/3*2); }
+@mixin one-sixth-pad-columns() 	{ width: ($colpad * (1 + 1/3)) + ($col * (2 + 1/3)); } 	// for 6 columns in 14
+@mixin one-fifth-pad-columns() 	{ width: ($colpad * 1.8) + ($col * 2.8); } 				// for 5 columns in 14
+@mixin three-half-columns() 	{ width: ($colpad * 2.5) + ($col * 3.5); } 				// for 4 columns in 14
+@mixin four-two-third-columns()	{ width: ($colpad * (3 + 2/3)) + ($col * (4 + 2/3)); }	// for 3 columns in 14
+@mixin zero-down() 			{ top: ($rowpad * 1); }
+@mixin one-down() 			{ top: ($rowpad * 2) + ($row * 1); }
+@mixin two-down() 			{ top: ($rowpad * 3) + ($row * 2); }
+@mixin three-down() 		{ top: ($rowpad * 4) + ($row * 3); }
+@mixin four-down() 			{ top: ($rowpad * 5) + ($row * 4); }
+@mixin five-down() 			{ top: ($rowpad * 6) + ($row * 5); }
+@mixin six-down() 			{ top: ($rowpad * 7) + ($row * 6); }
+@mixin seven-down() 		{ top: ($rowpad * 8) + ($row * 7); }
+@mixin eight-down() 		{ top: ($rowpad * 9) + ($row * 8); }
+@mixin zero-right 			{ left: ($colpad * 1); }
+@mixin one-right() 			{ left: ($colpad * 2) + ($col * 1); }
+@mixin two-right() 			{ left: ($colpad * 3) + ($col * 2); }
+@mixin three-right() 		{ left: ($colpad * 4) + ($col * 3); }
+@mixin four-right() 		{ left: ($colpad * 5) + ($col * 4); }
+@mixin five-right() 		{ left: ($colpad * 6) + ($col * 5); }
+@mixin six-right() 			{ left: ($colpad * 7) + ($col * 6); }
+@mixin seven-right() 		{ left: ($colpad * 8) + ($col * 7); }
+@mixin eight-right() 		{ left: ($colpad * 9) + ($col * 8); }
+@mixin nine-right() 		{ left: ($colpad * 10) + ($col * 9); }
+@mixin ten-right() 			{ left: ($colpad * 11) + ($col * 10); }
+@mixin eleven-right() 		{ left: ($colpad * 12) + ($col * 11); }
+@mixin twelve-right() 		{ left: ($colpad * 13) + ($col * 12); }
+@mixin thirteen-right() 	{ left: ($colpad * 14) + ($col * 13); }
+@mixin fourteen-right() 	{ left: ($colpad * 15) + ($col * 14); }
+@mixin fifteen-right() 		{ left: ($colpad * 16) + ($col * 15); }
+@mixin zero-left() 			{ right: ($colpad * 1); }
+@mixin one-left() 			{ right: ($colpad * 2) + ($col * 1); }
+@mixin two-left() 			{ right: ($colpad * 3) + ($col * 2); }
+@mixin three-left() 		{ right: ($colpad * 4) + ($col * 3); }
+@mixin four-left() 			{ right: ($colpad * 5) + ($col * 4); }
+@mixin five-left() 			{ right: ($colpad * 6) + ($col * 5); }
+@mixin six-left() 			{ right: ($colpad * 7) + ($col * 6); }
+@mixin seven-left() 		{ right: ($colpad * 8) + ($col * 7); }
+@mixin eight-left() 		{ right: ($colpad * 9) + ($col * 8); }
+@mixin nine-left() 			{ right: ($colpad * 10) + ($col * 9); }
+@mixin ten-left() 			{ right: ($colpad * 11) + ($col * 10); }
+@mixin eleven-left() 		{ right: ($colpad * 12) + ($col * 11); }
+@mixin twelve-left() 		{ right: ($colpad * 13) + ($col * 12); }
+@mixin thirteen-left() 		{ right: ($colpad * 14) + ($col * 13); }
+@mixin fourteen-left() 		{ right: ($colpad * 15) + ($col * 14); }
+@mixin fifteen-left() 		{ right: ($colpad * 16) + ($col * 15); }
+@mixin offset-zero() 		{ margin-left: ($colpad * 1); }
+@mixin offset-one() 		{ margin-left: ($colpad * 2) + ($col * 1); }
+@mixin offset-two() 		{ margin-left: ($colpad * 3) + ($col * 2); }
+@mixin offset-three() 		{ margin-left: ($colpad * 4) + ($col * 3); }
+@mixin offset-four() 		{ margin-left: ($colpad * 5) + ($col * 4); }
+@mixin offset-five() 		{ margin-left: ($colpad * 6) + ($col * 5); }
+@mixin offset-six() 		{ margin-left: ($colpad * 7) + ($col * 6); }
+@mixin offset-seven() 		{ margin-left: ($colpad * 8) + ($col * 7); }
+@mixin offset-eight() 		{ margin-left: ($colpad * 9) + ($col * 8); }
+@mixin offset-nine() 		{ margin-left: ($colpad * 10) + ($col * 9); }
+@mixin offset-ten() 		{ margin-left: ($colpad * 11) + ($col * 10); }
+@mixin offset-eleven() 		{ margin-left: ($colpad * 12) + ($col * 11); }
+@mixin offset-twelve() 		{ margin-left: ($colpad * 13) + ($col * 12); }
+@mixin offset-thirteen() 	{ margin-left: ($colpad * 14) + ($col * 13); }
+@mixin offset-fourteen() 	{ margin-left: ($colpad * 15) + ($col * 14); }
+@mixin offset-fifteen() 	{ margin-left: ($colpad * 16) + ($col * 15); }
+
+
+/*------------------------------------------
+::	New Version
+--------------------------------------------*/
+@mixin columns 		($number) 	{ width: ($colpad * ($number - 1)) + ($col * $number); }
+@mixin rows 		($number) 	{ height: ($rowpad * ($number - 1))  + ($row * $number); }
+@mixin offset 		($number)	{ margin-left: ($colpad * ($number + 1)) + ($col * $number); }
+@mixin offset-right	($number)	{ margin-right: ($colpad * ($number + 1)) + ($col * $number); }
+@mixin down 		($number)	{ top: ($rowpad * ($number + 1)) + ($row * $number); }
+@mixin up 			($number)	{ bottom: ($rowpad * ($number + 1)) + ($row * $number); }
+@mixin right 		($number)	{ left: ($colpad * ($number + 1)) + ($col * $number); }
+@mixin left 		($number)	{ right: ($colpad * ($number + 1)) + ($col * $number); }
+@mixin mtrx 		($right, $down, $columns, $rows) { 
+		position:absolute; 
+		@if $right == auto {} @else if $right < 0 { @include left(-$right); } @else { @include right($right); }
+		@if $down == auto {} @else if $down < 0 { @include up(-$down); } @else { @include down($down); }
+		@if $columns != auto { @include columns($columns); }
+		@if $rows != auto { @include rows($rows); }
+		@include transition((top 400ms, right 400ms, bottom 400ms, left 400ms, width 400ms, height 400ms));
+}
+@mixin statx 		($offset, $columns) { 
+		@if $offset < 0 { @include offset-right($offset); float:right; } @else { @include offset($offset); float:left; }
+		@if $columns != auto { @include columns($columns); }
+}
+

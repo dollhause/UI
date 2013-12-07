@@ -1,0 +1,52 @@
+/*------------------------------
+::
+:: 	Helpers
+::
+--------------------------------*/
+@mixin transition($props1) {
+	transition: $props1;
+	-webkit-transition: $props1;
+	-moz-transition: $props1;
+	-o-transition: $props1;
+	-ms-transition: $props1;
+}
+@mixin transition-transform($duration) {
+	transition: transform $duration;
+	-webkit-transition: -webkit-transform $duration;
+	-moz-transition: -moz-transform $duration;
+	-o-transition: -o-transform $duration;
+	-ms-transition: -ms-transform $duration;
+}
+@mixin transition-with-transform($props1, $duration) {
+	transition: $props1, transform $duration;
+	-webkit-transition: $props1, -webkit-transform $duration;
+	-moz-transition: $props1, -moz-transform $duration;
+	-o-transition: $props1, -o-transform $duration;
+	-ms-transition: $props1, -ms-transform $duration;
+}
+@mixin transform($props1) {
+	transform: $props1;
+	-webkit-transform: $props1;
+	-moz-transform: $props1;
+	-o-transform: $props1;
+	-ms-transform: $props1;
+}
+@mixin transform-origin($props1) {
+	transform-origin: $props1;
+	-webkit-transform-origin: $props1;
+	-moz-transform-origin: $props1;
+	-o-transform-origin: $props1;
+	-ms-transform-origin: $props1;
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} { @content; }
+	@-moz-keyframes #{$name} { @content; }
+	@-ms-keyframes #{$name} { @content; }
+	@keyframes #{$name} { @content; } 
+}
+@mixin animation($attributes) {
+	-webkit-animation: $attributes; 
+	-moz-animation: $attributes;
+	-ms-animation: $attributes;
+	animation: $attributes;
+}
