@@ -6,6 +6,7 @@
 :: 	Configuration
 --------------------------------------------*/
 $complete-reset: true;
+$border-box: true;
 
 /*------------------------------------------
 :: 	Normalize.css
@@ -73,7 +74,11 @@ body * {
 	ul { @include clip(); list-style:none; }
 	li { @include clip(); }
 	button { @include clip(); background:transparent; border:0; }
+	:focus { outline:0; }
 }
 
+@if $border-box {
+	input { @include box-sizing(border-box); }
+}
 
 
