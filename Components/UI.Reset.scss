@@ -28,26 +28,26 @@
 --------------------------------------------*/
 .reset-box { @include reset-box(); }
 .reset-text { @include reset-text(); }
-.reset-decoration { @include rest-decoration(); }
+.reset-decoration { @include reset-decoration(); }
 
 /*------------------------------------------
 :: 	Targeted Resets
 --------------------------------------------*/
 html, body, article, audio, canvas, video, legend, section, nav, footer, 
 aside, blockquote, form, header, figure, figcaption, code, kbd, pre, samp {
-	@extend .reset-box(); display:block;
+	@extend .reset-box; display:block;
 } 
 h1, h2, h3, h4, h5, h6, p, ol, ul, li { 
-	@extend .reset-box(); @extend .reset-text(); display:block;
+	@extend .reset-box; @extend .reset-text; display:block;
 }
 b, strong, em, span, i, em, abbr, acronym, small, a, del, ins, q, label {
-	@extend .reset-box(); @extend .reset-text();
+	@extend .reset-box; @extend .reset-text;
 }
 fieldset, hr, iframe, table, thead, tbody, td, th, textarea, img { 
-	 @extend .reset-box(); @extend .reset-decoration;
+	 @extend .reset-box; @extend .reset-decoration;
 }
 address, caption, cite {
-	@extend .reset-box(); @extend .reset-text();
+	@extend .reset-box; @extend .reset-text;
 }
 
 /*------------------------------------------
@@ -65,9 +65,9 @@ a {
 :: 	Selects and Inputs
 --------------------------------------------*/
 select, option, input, button { 
-	@extend .reset-box(); @extend .reset-text(); @extend .reset-decoration(); 
+	@extend .reset-box; @extend .reset-text; @extend .reset-decoration; 
 	@include reset-states() {
-		@extend .reset-text(); @extend .reset-decoration(); 	
+		@extend .reset-text; @extend .reset-decoration; 	
 	}
 }
 
@@ -78,6 +78,7 @@ body * {
 	@include backface-visibility(hidden); 
 	@include user-select(none); 
 	-webkit-tap-highlight-color: transparent; 
+	font-size: 16px;
 }
 
 /*------------------------------------------
