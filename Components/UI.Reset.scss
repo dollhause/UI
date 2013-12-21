@@ -5,14 +5,11 @@
 --------------------------------------------
 :: 	Reset Mixins
 --------------------------------------------*/
-@mixin reset-states() {
-	&:hover, &:active, &:focus, &::-moz-focus-inner { @content; }
-}
 @mixin reset-box() {
 	@include box-sizing(content-box); margin:0; padding:0; 
 }
 @mixin reset-text() {
-	font: normal normal 1em 'Helvetica', Arial, sans-serif; 
+	font-weight:normal; font-style: normal;
 	color: #000;
 	text-align: left; text-decoration: none; text-indent: 0; text-transform: none;
 	line-height: 1em; letter-spacing: normal; word-spacing:normal; @include text-size-adjust(100%);
@@ -27,7 +24,7 @@
 :: 	Extendable Classes
 --------------------------------------------*/
 .reset-box { @include reset-box(); }
-.reset-text { @include reset-text(); }
+.reset-text { @include reset-text(); color: blue; }
 .reset-decoration { @include reset-decoration(); }
 
 /*------------------------------------------
@@ -40,14 +37,12 @@ aside, blockquote, form, header, figure, figcaption, code, kbd, pre, samp {
 h1, h2, h3, h4, h5, h6, p, ol, ul, li { 
 	@extend .reset-box; @extend .reset-text; display:block;
 }
-b, strong, em, span, i, em, abbr, acronym, small, a, del, ins, q, label {
+b, strong, em, span, i, em, abbr, acronym, small, a, del, ins, q, label, 
+address, caption, cite  {
 	@extend .reset-box; @extend .reset-text;
 }
-fieldset, hr, iframe, table, thead, tbody, td, th, textarea, img { 
-	 @extend .reset-box; @extend .reset-decoration;
-}
-address, caption, cite {
-	@extend .reset-box; @extend .reset-text;
+fieldset, hr, iframe, table, thead, tbody, td, th, img { 
+	 @extend .reset-box; @extend .reset-decoration; @extend .reset-text;
 }
 
 /*------------------------------------------
@@ -55,25 +50,28 @@ address, caption, cite {
 --------------------------------------------*/
 a, button, html input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; }
 button[disabled], html input[disabled] { cursor: default; }
-a {
-	@include reset-states() {
-		text-decoration:none; color: #000;	
-	}
-}
+a:hover, a:active, a:focus, a::-moz-focus-inner { text-decoration:none; color: #000;  }
 
 /*------------------------------------------
 :: 	Selects and Inputs
 --------------------------------------------*/
-select, option, input, button { 
+select, select:hover, select:active, select:focus, 
+option, option:hover, option:active, option:focus, 
+input, input:hover, input:active, input:focus, 
+button, button:hover, button:active, button:focus,
+textarea, textarea:hover, textarea:active, textarea:focus { 
 	@extend .reset-box; @extend .reset-text; @extend .reset-decoration; 
-	@include reset-states() {
-		@extend .reset-text; @extend .reset-decoration; 	
-	}
+	font: inherit; color: inherit;
 }
 
 /*------------------------------------------
-:: 	disable select, 
+:: 	Disable Select, Mobile Highlights
 --------------------------------------------*/
+html, body { 
+	font: 1em 'Helvetica', Arial, sans-serif;
+	@extend .reset-text;
+}
+
 body * { 
 	@include backface-visibility(hidden); 
 	@include user-select(none); 
