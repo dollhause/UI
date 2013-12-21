@@ -70,8 +70,8 @@ $rowheight: 6.5574%; 	$rowpad: 4.0984%;
 --------------------------------------------*/
 @mixin matrix 		($right, $down, $columns, $rows) { 
 	position:absolute; 
-	@if $right == auto {} @else if $right < 0 { @include left(-$right); } @else { @include right($right); }
-	@if $down == auto {} @else if $down < 0 { @include up(-$down); } @else { @include down($down); }
+	@if $right == auto {} @else if $right < 0 or $right == -0 { @include left(-$right); } @else { @include right($right); }
+	@if $down == auto {} @else if $down < 0 or $down == -0 { @include up(-$down); } @else { @include down($down); }
 	@if $columns != auto { @include columns($columns); }
 	@if $rows != auto { @include rows($rows); }
 	@if $transition { @include transition((top 400ms, right 400ms, bottom 400ms, left 400ms, width 400ms, height 400ms)); }
