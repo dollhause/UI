@@ -2,24 +2,7 @@
 ::
 :: 	UI > Components > Reset
 ::
---------------------------------------------
-:: 	Reset Mixins
---------------------------------------------*/
-@mixin reset-box() {
-	@include box-sizing(content-box); margin:0; padding:0; 
-}
-@mixin reset-text() {
-	font-weight:normal; font-style: normal; font-size: 1em;
-	text-align: left; text-decoration: none; text-indent: 0; text-transform: none;
-	line-height: 1em; letter-spacing: normal; word-spacing:normal; @include text-size-adjust(100%);
-}
-@mixin reset-decoration() {
-	background: transparent no-repeat fixed center; 
-	border: 0; border-radius: 0; outline: 0; outline-offset:0;
-	box-shadow: none;
-}
-
-/*------------------------------------------
+--------------------------------------------x
 :: 	Extendable Classes
 --------------------------------------------*/
 .reset-box { @include reset-box(); }
@@ -38,7 +21,7 @@ h1, h2, h3, h4, h5, h6, p, ol, ul, li {
 }
 b, strong, em, span, i, em, abbr, acronym, small, a, del, ins, q, label, 
 address, caption, cite, kbd, samp  {
-	@extend .reset-box; @extend .reset-text;
+	@extend .reset-box; @extend .reset-font;
 }
 fieldset, hr, iframe, table, thead, tbody, td, th, img { 
 	 @extend .reset-box; @extend .reset-decoration; @extend .reset-text;
@@ -54,13 +37,16 @@ a:hover, a:active, a:focus, a::-moz-focus-inner { text-decoration:none; color: #
 /*------------------------------------------
 :: 	Selects and Inputs
 --------------------------------------------*/
-select, select:hover, select:active, select:focus, 
-option, option:hover, option:active, option:focus, 
-input, input:hover, input:active, input:focus, 
-button, button:hover, button:active, button:focus,
-textarea, textarea:hover, textarea:active, textarea:focus { 
+select, option, input, button, textarea { 
 	@extend .reset-box; @extend .reset-text; @extend .reset-decoration; 
 	font: inherit; color: inherit;
+}
+select:hover, select:active, select:focus,
+option:hover, option:active, option:focus, 
+input:hover, input:active, input:focus, 
+button:hover, button:active, button:focus,
+textarea:hover, textarea:active, textarea:focus {
+	outline:0;
 }
 
 /*------------------------------------------
