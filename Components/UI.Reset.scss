@@ -6,6 +6,7 @@
 :: 	Extendable Classes
 --------------------------------------------*/
 .reset-box { @include reset-box(); }
+.reset-font { @include reset-font(); }
 .reset-text { @include reset-text(); }
 .reset-decoration { @include reset-decoration(); }
 
