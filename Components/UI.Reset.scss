@@ -59,6 +59,7 @@ html, body {
 }
 
 body * { 
+	cursor:default;
 	@include backface-visibility(hidden); 
 	@include user-select(none); 
 	-webkit-tap-highlight-color: transparent; 
