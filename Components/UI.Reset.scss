@@ -9,8 +9,7 @@
 	@include box-sizing(content-box); margin:0; padding:0; 
 }
 @mixin reset-text() {
-	font-weight:normal; font-style: normal;
-	color: #000;
+	font-weight:normal; font-style: normal; font-size: 1em;
 	text-align: left; text-decoration: none; text-indent: 0; text-transform: none;
 	line-height: 1em; letter-spacing: normal; word-spacing:normal; @include text-size-adjust(100%);
 }
@@ -24,21 +23,21 @@
 :: 	Extendable Classes
 --------------------------------------------*/
 .reset-box { @include reset-box(); }
-.reset-text { @include reset-text(); color: blue; }
+.reset-text { @include reset-text(); }
 .reset-decoration { @include reset-decoration(); }
 
 /*------------------------------------------
 :: 	Targeted Resets
 --------------------------------------------*/
 html, body, article, audio, canvas, video, legend, section, nav, footer, 
-aside, blockquote, form, header, figure, figcaption, code, kbd, pre, samp {
+aside, blockquote, form, header, figure, figcaption, code, pre {
 	@extend .reset-box; display:block;
 } 
 h1, h2, h3, h4, h5, h6, p, ol, ul, li { 
 	@extend .reset-box; @extend .reset-text; display:block;
 }
 b, strong, em, span, i, em, abbr, acronym, small, a, del, ins, q, label, 
-address, caption, cite  {
+address, caption, cite, kbd, samp  {
 	@extend .reset-box; @extend .reset-text;
 }
 fieldset, hr, iframe, table, thead, tbody, td, th, img { 
@@ -68,7 +67,8 @@ textarea, textarea:hover, textarea:active, textarea:focus {
 :: 	Disable Select, Mobile Highlights
 --------------------------------------------*/
 html, body { 
-	font: 1em 'Helvetica', Arial, sans-serif;
+	font-size: 16px;
+	font: 1em 'Helvetica', Arial, sans-serif; color: #000;
 	@extend .reset-text;
 }
 
@@ -76,7 +76,6 @@ body * {
 	@include backface-visibility(hidden); 
 	@include user-select(none); 
 	-webkit-tap-highlight-color: transparent; 
-	font-size: 16px;
 }
 
 /*------------------------------------------
@@ -89,7 +88,7 @@ sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: b
 sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 pre { white-space: pre-wrap; }
-code, kbd, pre, samp { font-family: monospace, serif; }
+code, pre { font-family: monospace, serif; }
 hr { height: 0; }
 textarea { overflow: auto; vertical-align: top; }
 q { quotes: "\201C" "\201D" "\2018" "\2019"; }
