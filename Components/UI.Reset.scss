@@ -59,12 +59,13 @@ html, body {
 	@extend .reset-text;
 }
 
-body * { 
-	cursor:default;
+body * {
 	@include backface-visibility(hidden); 
 	@include user-select(none); 
 	-webkit-tap-highlight-color: transparent; 
 }
+
+// * { cursor:default; }
 
 /*------------------------------------------
 :: 	Special Cases
