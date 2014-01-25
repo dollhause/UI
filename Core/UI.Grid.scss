@@ -6,8 +6,10 @@
 $rows: 9;
 $columns: 16;
 
-$max-width: 1218px;
+// $max-width: 1218px;
+$max-width: 99999px;
 $transition: true;
+$delay: 400;
 
 $colwidth: 3.7559%; 	$colpad: 2.3474%;
 $rowheight: 6.5574%; 	$rowpad: 4.0984%;
@@ -23,6 +25,8 @@ $rowheight: 6.5574%; 	$rowpad: 4.0984%;
 @mixin columns 		($number) 	{ 
 	@if $number == 'one-third' {
 		width: (100% - ($colpad * 4))/3; 
+	} @elseif $number == 'one-sixth' {
+		width: (100% - ($colpad * 6))/6;
 	} @else {
 		width: ($colpad * ($number - 1)) + ($colwidth * $number); 	
 	}
@@ -31,8 +35,22 @@ $rowheight: 6.5574%; 	$rowpad: 4.0984%;
 /*------------------------------------------
 ::	offsets
 --------------------------------------------*/
-@mixin offset 		($number)	{ margin-left: ($colpad * ($number + 1)) + ($colwidth * $number); }
-@mixin offset-right	($number)	{ margin-right: ($colpad * ($number + 1)) + ($colwidth * $number); }
+@mixin offset 		($number)	{ 
+	@if $number == 'one-third' {
+		margin-left: (100% - ($colpad * 4))/3 + 2 * $colpad;
+	} @elseif $number == 'one-sixth' {
+		margin-left: (100% - ($colpad * 6))/6 + 2 * $colpad;
+	} @else {
+		margin-left: ($colpad * ($number + 1)) + ($colwidth * $number); 
+	}
+}
+@mixin offset-right	($number)	{ 
+	@if $number == '-one-third' {
+
+	} @else {
+		margin-right: ($colpad * ($number + 1)) + ($colwidth * $number); 
+	}
+}
 
 /*------------------------------------------
 ::	rows
@@ -57,7 +75,10 @@ $rowheight: 6.5574%; 	$rowpad: 4.0984%;
 ::	grid
 --------------------------------------------*/
 @mixin grid 		($offset, $columns) { 
-	@if $offset < 0 { @include offset-right($offset); float:right; } @else { @include offset($offset); float:left; }
+	@if $offset == 'one-third' { @include offset($offset); float:left; }
+	@else if $offset == 'one-sixth' { @include offset($offset); float:left; }
+	@else if $offset < 0 { @include offset-right($offset); float:right; } 
+	@else { @include offset($offset); float:left; }
 	@if $columns != auto { @include columns($columns); }
 	@if $transition { @include transition((margin 400ms, width 400ms)); }
 	.reset {
@@ -70,11 +91,11 @@ $rowheight: 6.5574%; 	$rowpad: 4.0984%;
 --------------------------------------------*/
 @mixin matrix 		($right, $down, $columns, $rows) { 
 	position:absolute; 
-	@if $right == auto {} @else if $right < 0 or $right == -0 { @include left(-$right); } @else { @include right($right); }
-	@if $down == auto {} @else if $down < 0 or $down == -0 { @include up(-$down); } @else { @include down($down); }
+	@if $right == auto {} @else if $right < 0 { @include left(-$right); } @else { @include right($right); }
+	@if $down == auto {} @else if $down < 0 { @include up(-$down); } @else { @include down($down); }
 	@if $columns != auto { @include columns($columns); }
 	@if $rows != auto { @include rows($rows); }
-	@if $transition { @include transition((top 400ms, right 400ms, bottom 400ms, left 400ms, width 400ms, height 400ms)); }
+	@if $transition { @include transition((top 400ms $delay, right 400ms $delay, bottom 400ms $delay, left 400ms $delay, width 400ms $delay, height 400ms $delay)); }
 	.reset {
 
 	}

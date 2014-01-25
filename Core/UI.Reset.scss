@@ -14,7 +14,7 @@
 @mixin reset-text() {
 	@include reset-font();
 	font-size: 1em; line-height: 1em;
-	text-align: left; text-decoration: none; text-indent: 0; text-transform: none;
+	text-decoration: none; text-indent: 0; text-transform: none;
 	letter-spacing: normal; word-spacing:normal; @include text-size-adjust(100%);
 }
 @mixin reset-decoration() {
